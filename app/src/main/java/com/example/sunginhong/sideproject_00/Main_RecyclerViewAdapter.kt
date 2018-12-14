@@ -3,7 +3,6 @@ package com.example.sunginhong.sideproject_00
 import android.content.Context
 import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +10,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_raw.view.*
+
+
 
 
 class Main_RecyclerViewAdapter(val context: Context, val userList:ArrayList<Main_User>):RecyclerView.Adapter<Main_RecyclerViewAdapter.ViewHolder>() {
@@ -48,7 +49,12 @@ class Main_RecyclerViewAdapter(val context: Context, val userList:ArrayList<Main
             imgThumb = itemView.imageThumb
 
             view.setOnClickListener {
-                Log.d("ssss", "sss"+view.id)
+                if (view.height == 360){
+                    Utils_Animation.ResizeAnim(view, 1000, 400)
+                }
+                if (view.height == 1000){
+                    Utils_Animation.ResizeAnim(view, 360, 400)
+                }
             }
         }
 
