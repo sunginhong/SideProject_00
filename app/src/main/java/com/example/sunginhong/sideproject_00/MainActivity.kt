@@ -4,39 +4,46 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.view.View
 import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
+import kotlin.concurrent.timerTask
 
 class MainActivity : AppCompatActivity() {
+
+    companion object {
+        var screenHeight = 0
+        var screenWidth = 0
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        screenHeight = getScreenSize(this).y
+        screenWidth = getScreenSize(this).x
+        val timer = Timer()
 
-        val userList = arrayListOf<Main_User>(
-            Main_User("A","hong@naver.com","https://s3.amazonaws.com/appsdeveloperblog/micky.gif"),
-            Main_User("B","hong@naver.com","https://cdn.dribbble.com/users/14268/screenshots/5593802/joy-fm_2x.png"),
-            Main_User("C","hong@naver.com","https://cdn.dribbble.com/users/14268/screenshots/5593802/joy-fm_2x.png"),
-            Main_User("D","hong@naver.com","https://cdn.dribbble.com/users/14268/screenshots/5593802/joy-fm_2x.png"),
-            Main_User("E","hong@naver.com","https://cdn.dribbble.com/users/14268/screenshots/5593802/joy-fm_2x.png"),
-            Main_User("F","hong@naver.com","https://cdn.dribbble.com/users/14268/screenshots/5593802/joy-fm_2x.png"),
-            Main_User("G","hong@naver.com","https://cdn.dribbble.com/users/14268/screenshots/5593802/joy-fm_2x.png"),
-            Main_User("H","hong@naver.com","https://cdn.dribbble.com/users/14268/screenshots/5593802/joy-fm_2x.png"),
-            Main_User("I","hong@naver.com","https://cdn.dribbble.com/users/14268/screenshots/5593802/joy-fm_2x.png"),
-            Main_User("J","hong@naver.com","https://cdn.dribbble.com/users/14268/screenshots/5593802/joy-fm_2x.png"),
-            Main_User("K","hong@naver.com","https://cdn.dribbble.com/users/14268/screenshots/5593802/joy-fm_2x.png")
-        )
+        val RecyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        RecyclerView.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        RecyclerView.setHasFixedSize(true)
+        RecyclerView.adapter = Main_RecyclerViewAdapter(context(), MainUserList)
 
-        //레이아웃매니저 설정
-        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
-        recyclerView.setHasFixedSize(true)
+        val mAdapter = Main_ViewPagerAdapter(context(), MainUserList)
+        vp.setAdapter(mAdapter)
+        vp.setClipToPadding(false)
+        vp.setPageMargin(0)
+        vp.setOffscreenPageLimit(MainUserList.size)
+        vp.visibility = View.GONE
 
-        //어답터 설정
-        recyclerView.adapter = Main_RecyclerViewAdapter(context(), userList)
+        timer.schedule(timerTask { }, 300)
     }
 
     fun context(): Context {
         return applicationContext
     }
+
+
 }
 

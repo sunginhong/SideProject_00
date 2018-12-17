@@ -11,9 +11,6 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_raw.view.*
 
-
-
-
 class Main_RecyclerViewAdapter(val context: Context, val userList:ArrayList<Main_User>):RecyclerView.Adapter<Main_RecyclerViewAdapter.ViewHolder>() {
     var c = context;
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Main_RecyclerViewAdapter.ViewHolder {
@@ -21,7 +18,6 @@ class Main_RecyclerViewAdapter(val context: Context, val userList:ArrayList<Main
         return ViewHolder(v)
     }
 
-    //this method is binding the data on the list
     override fun onBindViewHolder(holder: Main_RecyclerViewAdapter.ViewHolder, position: Int) {
         holder.lst_layout.id = position
         holder.title.text = userList[position].title
@@ -31,7 +27,6 @@ class Main_RecyclerViewAdapter(val context: Context, val userList:ArrayList<Main
             .into(holder.imgThumb)
     }
 
-    //아이템의 갯수
     override fun getItemCount(): Int {
         return userList.size
     }
@@ -42,19 +37,15 @@ class Main_RecyclerViewAdapter(val context: Context, val userList:ArrayList<Main
         var subTitle: TextView
         var imgThumb: ImageView
         var view = itemView
+
         init {
             lst_layout = itemView.lst_layout
-            title = itemView.textTitle
+            title = itemView.mainList_textTitle
             subTitle = itemView.textSubTitle
-            imgThumb = itemView.imageThumb
+            imgThumb = itemView.mainList_imageThumb
 
             view.setOnClickListener {
-                if (view.height == 360){
-                    Utils_Animation.ResizeAnim(view, 1000, 400)
-                }
-                if (view.height == 1000){
-                    Utils_Animation.ResizeAnim(view, 360, 400)
-                }
+
             }
         }
 
