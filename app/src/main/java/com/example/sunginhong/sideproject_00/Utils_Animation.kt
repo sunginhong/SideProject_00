@@ -1,5 +1,6 @@
 package com.example.sunginhong.sideproject_00
 
+import android.animation.ValueAnimator
 import android.view.View
 import android.view.animation.*
 
@@ -48,6 +49,24 @@ internal object Utils_Animation {
         resizeFitAnimation.interpolator = DecelerateInterpolator(1.5.toFloat())
         resizeFitAnimation.duration = duration
         view.startAnimation(resizeFitAnimation)
+    }
+
+    fun ValueAnimator(startPos: Float, endPos: Float, duration: Int):Float {
+        val animator = ValueAnimator.ofFloat(startPos, endPos)
+        var resultN = 0f
+        animator.duration = duration.toLong()
+        animator.interpolator = DecelerateInterpolator(java.lang.Float.valueOf(1.5.toString()))
+        animator.addUpdateListener(object : ValueAnimator.AnimatorUpdateListener {
+            override fun onAnimationUpdate(animator: ValueAnimator) {
+                resultN = animator.animatedValue as Float
+            }
+        })
+
+        animator.start()
+        return resultN
+    }
+    fun sum(a: Int, b: Int): Int {
+        return a + b
     }
 
 }

@@ -15,7 +15,6 @@ import java.util.*
 class Main_ViewPagerAdapter(val context: Context, val userList:ArrayList<Main_User>) :
     PagerAdapter() {
     internal var items: MutableList<String> = ArrayList()
-    internal var scrappedView: List<View> = ArrayList()
     private val mInflater: LayoutInflater
     private val mMyViewPool: Pools.SimplePool<View>
 

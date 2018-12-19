@@ -2,12 +2,11 @@ package com.example.sunginhong.sideproject_00
 
 import android.content.Context
 import android.os.Bundle
+import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.View
 import android.widget.LinearLayout
-import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.concurrent.timerTask
 
@@ -30,12 +29,14 @@ class MainActivity : AppCompatActivity() {
         RecyclerView.setHasFixedSize(true)
         RecyclerView.adapter = Main_RecyclerViewAdapter(context(), MainUserList)
 
+        val vp = findViewById<ViewPager>(R.id.vp)
         val mAdapter = Main_ViewPagerAdapter(context(), MainUserList)
         vp.setAdapter(mAdapter)
         vp.setClipToPadding(false)
         vp.setPageMargin(0)
         vp.setOffscreenPageLimit(MainUserList.size)
-        vp.visibility = View.GONE
+        
+        var ss = Utils_Animation.ValueAnimator(0f, 400f, 1000)
 
         timer.schedule(timerTask { }, 300)
     }
