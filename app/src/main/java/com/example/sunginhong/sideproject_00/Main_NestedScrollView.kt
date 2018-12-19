@@ -7,7 +7,7 @@ import android.util.AttributeSet
 import android.view.View
 
 
-class Main_NestedScrollingView : NestedScrollView {
+class Main_NestedScrollView : NestedScrollView {
     private var mState = RecyclerView.SCROLL_STATE_IDLE
 
     private var mScrollListener: NestedScrollViewScrollStateListener? = null

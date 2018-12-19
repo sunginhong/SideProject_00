@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         vp.setClipToPadding(false)
         vp.setPageMargin(0)
         vp.setOffscreenPageLimit(MainUserList.size)
-        
+
         var ss = Utils_Animation.ValueAnimator(0f, 400f, 1000)
 
         timer.schedule(timerTask { }, 300)
