@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         screenHeight = getScreenSize(this).y
         screenWidth = getScreenSize(this).x
         val timer = Timer()
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         var ss = Utils_Animation.ValueAnimator(0f, 400f, 1000)
 
         timer.schedule(timerTask { }, 300)
+
     }
 
     fun context(): Context {

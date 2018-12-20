@@ -8,8 +8,6 @@ import android.view.ViewGroup
 
 
 class Main_ViewPegerFragment : Fragment() {
-
-    // TODO: Rename and change types of parameters
     private var mCount: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

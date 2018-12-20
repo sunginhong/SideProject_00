@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SideProject_00</string>
+    <string name="selection_string0"></string>
+    <string name="selection_string1"></string>
+    <string name="selection_string2"></string>
+    <string name="selection_string3"></string>
 </resources>
