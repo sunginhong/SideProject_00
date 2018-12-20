@@ -77,30 +77,28 @@
                         android:layout_marginEnd="40dp"
                         android:layout_alignBottom="@+id/bottomMenu_btn_alarm"
                         android:layout_toStartOf="@+id/bottomMenu_btn_search"
-                        android:layout_alignParentBottom="false" android:background="@drawable/icon_home_selector"/>
+                        android:layout_alignParentBottom="false"/>
                 <ImageButton
                         android:layout_width="28dp"
                         android:layout_height="28dp"
                         android:id="@+id/bottomMenu_btn_search"
                         android:layout_marginEnd="34dp"
                         android:layout_alignBottom="@+id/bottomMenu_btn_center"
-                        android:layout_toStartOf="@+id/bottomMenu_btn_center"
-                        android:background="@drawable/icon_search_selector"/>
+                        android:layout_toStartOf="@+id/bottomMenu_btn_center"/>
                 <ImageButton
                         android:layout_width="28dp"
                         android:layout_height="28dp"
                         android:layout_marginStart="34dp"
                         android:layout_alignBottom="@+id/bottomMenu_btn_center"
                         android:layout_toEndOf="@+id/bottomMenu_btn_center"
-                        android:id="@+id/bottomMenu_btn_my" android:background="@drawable/icon_my_selector"/>
+                        android:id="@+id/bottomMenu_btn_my"/>
                 <ImageButton
                         android:layout_width="28dp"
                         android:layout_height="28dp"
                         android:layout_marginStart="40dp"
                         android:id="@+id/bottomMenu_btn_alarm"
                         android:layout_alignBottom="@+id/bottomMenu_btn_my"
-                        android:layout_toEndOf="@+id/bottomMenu_btn_my"
-                        android:background="@drawable/icon_alarm_selector"/>
+                        android:layout_toEndOf="@+id/bottomMenu_btn_my"/>
             </RelativeLayout>
         </LinearLayout>
     </FrameLayout>
