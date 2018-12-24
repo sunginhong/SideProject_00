@@ -40,8 +40,6 @@ class MainActivity : AppCompatActivity() {
         var ss = Utils_Animation.ValueAnimator(0f, 400f, 1000)
 
         timer.schedule(timerTask { }, 300)
-        val Main_BottomFunc = Main_BottomFunc(context())
-
     }
 
     fun context(): Context {
