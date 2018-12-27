@@ -5,10 +5,10 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import android.widget.ScrollView
-import kotlinx.android.synthetic.main.activity_main.view.*
+import kotlinx.android.synthetic.main.main_fragment_page1.view.*
 
 
-class Main_CustomScrollView : ScrollView {
+class Main_CustomScrollView_Page1 : ScrollView {
 
     private var ScrollViewListener: ScrollView? = null
     private var currentlyTouching = false

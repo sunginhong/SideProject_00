@@ -7,16 +7,6 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-    <com.example.sunginhong.sideproject_00.Main_CustomScrollView
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/main_scrollview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="fill_vertical"
-            android:fillViewport="true"
-            android:scrollbars="none"
-            app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
-
         <fragment
                 android:id="@+id/main_fragment"
                 android:name="com.example.sunginhong.sideproject_00.Main_Fragment_Page1"
@@ -25,8 +15,6 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 tools:layout="@layout/main_fragment_page1" />
-
-    </com.example.sunginhong.sideproject_00.Main_CustomScrollView>
 
     <include android:layout_width="wrap_content"
              android:layout_height="wrap_content"

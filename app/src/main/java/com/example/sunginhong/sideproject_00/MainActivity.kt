@@ -5,7 +5,6 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.ImageButton
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.main_bottom_actionbar.*
 import java.util.*
 import kotlin.concurrent.timerTask
@@ -55,7 +54,6 @@ class MainActivity : AppCompatActivity() {
 
         for (i in 0 until arrayBtmButton.size) {
             arrayBtmButton[i].setOnClickListener {
-                main_scrollview.scrollTo(0,0)
                 if (i == 0 && selectBottomIndex != 0){
                     selectBottomIndex = 0
                     fragmentReplace(wFragment)
