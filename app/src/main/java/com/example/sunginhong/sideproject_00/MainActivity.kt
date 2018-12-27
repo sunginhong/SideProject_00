@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
     companion object {
         var screenHeight = 0
         var screenWidth = 0
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,33 +45,27 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun bottomButtonSet() {
-        val wFragment = Main_Fragment_Page0()
-        val fitstFragment = Main_Fragment_Page1()
-        val secondFragment = Main_Fragment_Page2()
-        val thirdFragment = Main_Fragment_Page3()
-        val fourFragment = Main_Fragment_Page4()
-
         for (i in 0 until arrayBtmButton.size) {
             arrayBtmButton[i].setOnClickListener {
                 if (i == 0 && selectBottomIndex != 0){
                     selectBottomIndex = 0
-                    fragmentReplace(wFragment)
+                    fragmentReplace(Main_Fragment_Page0())
                 }
                 if (i == 1 && selectBottomIndex != 1){
                     selectBottomIndex = 1
-                    fragmentReplace(fitstFragment)
+                    fragmentReplace(Main_Fragment_Page1())
                 }
                 if (i == 2 && selectBottomIndex != 2){
                     selectBottomIndex = 2
-                    fragmentReplace(secondFragment)
+                    fragmentReplace(Main_Fragment_Page2())
                 }
                 if (i == 3 && selectBottomIndex != 3){
                     selectBottomIndex = 3
-                    fragmentReplace(thirdFragment)
+                    fragmentReplace(Main_Fragment_Page3())
                 }
                 if (i == 4 && selectBottomIndex != 4){
                     selectBottomIndex = 4
-                    fragmentReplace(fourFragment)
+                    fragmentReplace(Main_Fragment_Page4())
                 }
             }
         }

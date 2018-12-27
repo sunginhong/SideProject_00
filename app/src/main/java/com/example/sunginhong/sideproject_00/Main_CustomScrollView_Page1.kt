@@ -10,10 +10,14 @@ import kotlinx.android.synthetic.main.main_fragment_page1.view.*
 
 class Main_CustomScrollView_Page1 : ScrollView {
 
+    companion object {
+        var mainSet = false
+    }
+
+
     private var ScrollViewListener: ScrollView? = null
     private var currentlyTouching = false
     private var currentlyScrolling = false
-    private var mainSet = false
 
     constructor(context: Context) : super(context) {}
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {}
@@ -57,8 +61,9 @@ class Main_CustomScrollView_Page1 : ScrollView {
     }
 
     private fun mainSet(){
-        if (!mainSet){ mainSet = true
-            main_scrollview.scrollTo(0, 0)
+        if (!mainSet){
+            main_scrollview_page1.scrollTo(0, 0)
+            mainSet = true
         }
     }
 
