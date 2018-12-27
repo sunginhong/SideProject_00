@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import android.widget.ScrollView
-
+import kotlinx.android.synthetic.main.activity_main.view.*
 
 
 class Main_CustomScrollView : ScrollView {
@@ -13,6 +13,7 @@ class Main_CustomScrollView : ScrollView {
     private var ScrollViewListener: ScrollView? = null
     private var currentlyTouching = false
     private var currentlyScrolling = false
+    private var mainSet = false
 
     constructor(context: Context) : super(context) {}
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {}
@@ -48,10 +49,17 @@ class Main_CustomScrollView : ScrollView {
     override fun onScrollChanged(scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int) {
         super.onScrollChanged(scrollX, scrollY, oldScrollX, oldScrollY)
         //SCROLL MOVE
+        mainSet()
     }
 
     fun checkIfScrollStart(){
         //SCROLL START
+    }
+
+    private fun mainSet(){
+        if (!mainSet){ mainSet = true
+            main_scrollview.scrollTo(0, 0)
+        }
     }
 
 }

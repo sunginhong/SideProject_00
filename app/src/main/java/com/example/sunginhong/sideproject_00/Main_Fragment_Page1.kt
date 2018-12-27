@@ -37,7 +37,7 @@ class Main_Fragment_Page1 : Fragment(){
 
     fun init (){
         val ctx = context ?: return
-        val mAdapter = Main_ViewPagerAdapter((activity as MainActivity).context(), MainUserList)
+        val mAdapter = Main_ViewPagerAdapter(ctx, MainUserList)
         vp.setAdapter(mAdapter)
         vp.setClipToPadding(false)
         vp.setPageMargin(0)
@@ -46,6 +46,5 @@ class Main_Fragment_Page1 : Fragment(){
         recyclerView.layoutManager = LinearLayoutManager(ctx, LinearLayout.VERTICAL, false)
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = Main_RecyclerViewAdapter(ctx, MainUserList)
-
     }
 }
