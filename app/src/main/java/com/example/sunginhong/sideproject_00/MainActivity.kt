@@ -1,5 +1,6 @@
 package com.example.sunginhong.sideproject_00
 
+import android.app.Fragment
 import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -13,7 +14,7 @@ import kotlin.concurrent.timerTask
 class MainActivity : AppCompatActivity() {
     val manager = supportFragmentManager
     val arrayBtmButton = arrayListOf<ImageButton>()
-    var selectBottomIndex = 0
+    var selectBottomIndex = 1
 
 
     companion object {
@@ -46,6 +47,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun bottomButtonSet() {
+        val wFragment = Main_Fragment_Page0()
         val fitstFragment = Main_Fragment_Page1()
         val secondFragment = Main_Fragment_Page2()
         val thirdFragment = Main_Fragment_Page3()
@@ -54,40 +56,36 @@ class MainActivity : AppCompatActivity() {
         for (i in 0 until arrayBtmButton.size) {
             arrayBtmButton[i].setOnClickListener {
                 main_scrollview.scrollTo(0,0)
+                if (i == 0 && selectBottomIndex != 0){
+                    selectBottomIndex = 0
+                    fragmentReplace(wFragment)
+                }
                 if (i == 1 && selectBottomIndex != 1){
                     selectBottomIndex = 1
-                    val transaction = fragmentManager.beginTransaction()
-                    transaction.replace(R.id.main_fragment, fitstFragment)
-                    transaction.addToBackStack(null)
-                    transaction.commit()
+                    fragmentReplace(fitstFragment)
                 }
                 if (i == 2 && selectBottomIndex != 2){
                     selectBottomIndex = 2
-                    val transaction = fragmentManager.beginTransaction()
-                    transaction.replace(R.id.main_fragment, secondFragment)
-                    transaction.addToBackStack(null)
-                    transaction.commit()
+                    fragmentReplace(secondFragment)
                 }
                 if (i == 3 && selectBottomIndex != 3){
                     selectBottomIndex = 3
-                    val transaction = fragmentManager.beginTransaction()
-                    transaction.replace(R.id.main_fragment, thirdFragment)
-                    transaction.addToBackStack(null)
-                    transaction.commit()
+                    fragmentReplace(thirdFragment)
                 }
                 if (i == 4 && selectBottomIndex != 4){
                     selectBottomIndex = 4
-                    val transaction = fragmentManager.beginTransaction()
-                    transaction.replace(R.id.main_fragment, fourFragment)
-                    transaction.addToBackStack(null)
-                    transaction.commit()
+                    fragmentReplace(fourFragment)
                 }
             }
         }
     }
 
-
-
+    fun fragmentReplace(fragment: Fragment){
+        val transaction = fragmentManager.beginTransaction()
+        transaction.replace(R.id.main_fragment, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
 
 }
 
