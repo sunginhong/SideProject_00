@@ -12,7 +12,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import java.util.*
 
-class Main_ViewPagerAdapter(val context: Context, val userList:ArrayList<Main_User>) :
+class Main_ViewPagerAdapter_Page1(val context: Context, val userList:ArrayList<Main_User>) :
     PagerAdapter() {
     internal var items: MutableList<String> = ArrayList()
     private val mInflater: LayoutInflater
@@ -38,9 +38,9 @@ class Main_ViewPagerAdapter(val context: Context, val userList:ArrayList<Main_Us
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         var view: View? = null
-        view = mInflater.inflate(R.layout.mainvp_fragment, null)
+        view = mInflater.inflate(R.layout.main_vpfragment_page1, null)
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val rootView = inflater.inflate(R.layout.mainvp_fragment, container, false)
+        val rootView = inflater.inflate(R.layout.main_vpfragment_page1, container, false)
 
         val mainVp_textTitle = view.findViewById(R.id.mainVp_textTitle) as TextView
         val mainVp_textSubTitle = view.findViewById(R.id.mainVp_textSubTitle) as TextView

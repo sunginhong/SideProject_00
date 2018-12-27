@@ -12,12 +12,6 @@ import kotlinx.android.synthetic.main.main_fragment_page1.*
 class Main_Fragment_Page1 : Fragment(){
 
     companion object {
-        fun newInstance(): Main_Fragment_Page1 {
-            var fragmentHome = Main_Fragment_Page1()
-            var args = Bundle()
-            fragmentHome.arguments = args
-            return fragmentHome
-        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +19,6 @@ class Main_Fragment_Page1 : Fragment(){
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
         var rootView = inflater!!.inflate(R.layout.main_fragment_page1, container, false)
         return rootView
     }
@@ -37,14 +30,14 @@ class Main_Fragment_Page1 : Fragment(){
 
     fun init (){
         val ctx = context ?: return
-        val mAdapter = Main_ViewPagerAdapter(ctx, MainUserList)
+        val mAdapter = Main_ViewPagerAdapter_Page1(ctx, MainUserList)
         vp.setAdapter(mAdapter)
         vp.setClipToPadding(false)
         vp.setPageMargin(0)
         vp.setOffscreenPageLimit(MainUserList.size)
 
-        recyclerView.layoutManager = LinearLayoutManager(ctx, LinearLayout.VERTICAL, false)
-        recyclerView.setHasFixedSize(true)
-        recyclerView.adapter = Main_RecyclerViewAdapter(ctx, MainUserList)
+        recyclerView_page1.layoutManager = LinearLayoutManager(ctx, LinearLayout.VERTICAL, false)
+        recyclerView_page1.setHasFixedSize(true)
+        recyclerView_page1.adapter = Main_RecyclerViewAdapter_Page1(ctx, MainUserList)
     }
 }

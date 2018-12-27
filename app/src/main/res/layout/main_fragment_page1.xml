@@ -15,8 +15,6 @@
             android:fillViewport="true"
             android:scrollbars="none">
 
-
-
             <RelativeLayout
                     xmlns:android="http://schemas.android.com/apk/res/android"
                     xmlns:tools="http://schemas.android.com/tools"
@@ -43,7 +41,7 @@
                                     android:layout_alignParentStart="true"/>
 
                             <android.support.v7.widget.RecyclerView
-                                    android:id="@+id/recyclerView"
+                                    android:id="@+id/recyclerView_page1"
                                     android:clipChildren="false"
                                     android:nestedScrollingEnabled="false"
                                     android:layout_width="match_parent"

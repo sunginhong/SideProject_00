@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/mainList_raw_p2_lst_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:paddingTop="32dp">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:layout_marginLeft="30dp" android:layout_marginRight="30dp">
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_marginBottom="20dp"
+            >
+                <ImageView
+                        android:id="@+id/mainList_raw_p2_imageThumb"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        app:srcCompat="@mipmap/ic_launcher_round"
+                        android:scaleType="centerCrop" android:layout_marginLeft="0dp"/>
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" tools:layout_editor_absoluteY="10dp"
+                        android:layout_marginLeft="20dp">
+                    <TextView
+                            android:id="@+id/mainList_raw_p2_textTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Title" android:textColor="#000000" android:textSize="22sp"
+                            android:lineSpacingExtra="5sp"/>
+                    <TextView
+                            android:id="@+id/mainList_raw_p2_textSubTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="subTitle"
+                            app:layout_constraintTop_toBottomOf="@+id/mainList_raw_p2_textTitle"
+                            android:textColor="#999999"
+                            android:textSize="15sp"/>
+                </LinearLayout>
+            </LinearLayout>
+            <View
+                    android:layout_width="match_parent"
+                    android:background="#26000000"
+                    android:layout_height="1dp" android:id="@+id/view" android:layout_marginBottom="14dp"
+            />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textColor="#666666"
+                    android:lineSpacingExtra="3sp"
+                    android:layout_marginBottom="14dp" android:text="29 Reviews"/>
+        </LinearLayout>
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:clipChildren="false">
+
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/mainList_raw_p2_recyclerView"
+                    android:nestedScrollingEnabled="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false">
+            </android.support.v7.widget.RecyclerView>
+
+        </ScrollView>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

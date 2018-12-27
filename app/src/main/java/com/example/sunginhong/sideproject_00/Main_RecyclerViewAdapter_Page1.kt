@@ -9,16 +9,17 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.item_raw.view.*
+import kotlinx.android.synthetic.main.item_raw_page1.view.*
 
-class Main_RecyclerViewAdapter(val context: Context, val userList:ArrayList<Main_User>):RecyclerView.Adapter<Main_RecyclerViewAdapter.ViewHolder>() {
+
+class Main_RecyclerViewAdapter_Page1(val context: Context, val userList:ArrayList<Main_User>):RecyclerView.Adapter<Main_RecyclerViewAdapter_Page1.ViewHolder>() {
     var c = context;
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Main_RecyclerViewAdapter.ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.item_raw, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Main_RecyclerViewAdapter_Page1.ViewHolder {
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.item_raw_page1, parent, false)
         return ViewHolder(v)
     }
 
-    override fun onBindViewHolder(holder: Main_RecyclerViewAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: Main_RecyclerViewAdapter_Page1.ViewHolder, position: Int) {
         holder.lst_layout.id = position
         holder.title.text = userList[position].title
         holder.subTitle.text = userList[position].subTitle
@@ -39,16 +40,15 @@ class Main_RecyclerViewAdapter(val context: Context, val userList:ArrayList<Main
         var view = itemView
 
         init {
-            lst_layout = itemView.lst_layout
-            title = itemView.mainList_textTitle
-            subTitle = itemView.textSubTitle
-            imgThumb = itemView.mainList_imageThumb
+            lst_layout = itemView.mainList_raw_p1_lst_layout
+            title = itemView.mainList_raw_p1_textTitle
+            subTitle = itemView.mainList_raw_p1_textSubTitle
+            imgThumb = itemView.mainList_raw_p1_imageThumb
 
             view.setOnClickListener {
 
             }
         }
-
     }
 }
 
