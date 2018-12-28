@@ -38,9 +38,9 @@ class Main_ViewPagerAdapter_Page1(val context: Context, val userList:ArrayList<M
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         var view: View? = null
-        view = mInflater.inflate(R.layout.main_vpfragment_page1, null)
+        view = mInflater.inflate(R.layout.item_vpfragment_page1, null)
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val rootView = inflater.inflate(R.layout.main_vpfragment_page1, container, false)
+        val rootView = inflater.inflate(R.layout.item_vpfragment_page1, container, false)
 
         val mainVp_textTitle = view.findViewById(R.id.mainVp_textTitle) as TextView
         val mainVp_textSubTitle = view.findViewById(R.id.mainVp_textSubTitle) as TextView
