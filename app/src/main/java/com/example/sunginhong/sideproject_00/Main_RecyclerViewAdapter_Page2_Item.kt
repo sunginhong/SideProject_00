@@ -25,8 +25,6 @@ class Main_RecyclerViewAdapter_Page2_Item(val context: Context, val userList:Arr
         Glide.with(c)
             .load(userList[position].imgThumb_Url)
             .into(holder.imgThumb)
-
-//        holder.recycle
     }
 
     override fun getItemCount(): Int {
