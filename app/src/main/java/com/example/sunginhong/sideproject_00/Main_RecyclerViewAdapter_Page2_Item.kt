@@ -11,7 +11,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_raw_page2_item_cardview.view.*
 
-class Main_RecyclerViewAdapter_Page2_Item(val context: Context, val userList:ArrayList<Main_User>): RecyclerView.Adapter<Main_RecyclerViewAdapter_Page2_Item.ViewHolder>() {
+class Main_RecyclerViewAdapter_Page2_Item(val context: Context, val userList:ArrayList<Main_User_min>): RecyclerView.Adapter<Main_RecyclerViewAdapter_Page2_Item.ViewHolder>() {
     var c = context;
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Main_RecyclerViewAdapter_Page2_Item.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.item_raw_page2_item_cardview, parent, false)

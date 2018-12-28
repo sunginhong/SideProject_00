@@ -12,7 +12,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import java.util.*
 
-class Main_ViewPagerAdapter_Page1(val context: Context, val userList:ArrayList<Main_User>) :
+class Main_ViewPagerAdapter_Page1(val context: Context, val userList:ArrayList<Main_User_min>) :
     PagerAdapter() {
     internal var items: MutableList<String> = ArrayList()
     private val mInflater: LayoutInflater
