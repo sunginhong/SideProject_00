@@ -29,7 +29,7 @@ class Main_Fragment_Page2 : Fragment() {
         init()
     }
 
-    fun init (){
+    private fun init (){
         val ctx = context ?: return
 
         recyclerView_page2.layoutManager = LinearLayoutManager(ctx, LinearLayout.VERTICAL, false)

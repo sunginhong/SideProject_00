@@ -28,7 +28,7 @@ class Main_Fragment_Page1 : Fragment(){
         init()
     }
 
-    fun init (){
+    private fun init (){
         val ctx = context ?: return
         val mAdapter = Main_ViewPagerAdapter_Page1(ctx, MainUserList_Min00)
         vp.setAdapter(mAdapter)
