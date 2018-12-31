@@ -11,10 +11,9 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.bumptech.glide.Glide
-import com.example.sunginhong.sideproject_00.Main_User_MinArr_Catch.Companion.arrayMainUserList
 import kotlinx.android.synthetic.main.item_raw_page2_item.view.*
 
-class Main_RecyclerViewAdapter_Page2(val context: Context, val userList:ArrayList<Main_User>): RecyclerView.Adapter<Main_RecyclerViewAdapter_Page2.ViewHolder>() {
+class Main_RecyclerViewAdapter_Page2(val context: Context, val userList:ArrayList<Main_User_Url>): RecyclerView.Adapter<Main_RecyclerViewAdapter_Page2.ViewHolder>() {
     var c = context;
 //    val arrayMainUserList= arrayListOf<ArrayList<Main_User_min>>()
     var mGroupList = ArrayList<ArrayList<String>>()
@@ -33,15 +32,10 @@ class Main_RecyclerViewAdapter_Page2(val context: Context, val userList:ArrayLis
             .load(userList[position].imgThumb_Url)
             .into(holder.imgThumb)
 
-//        mChildList.add("a")
-//        mGroupList.add(mChildList);
-
-        Main_User_MinArr_Catch.init()
-
         val ctx = context ?: return
         holder.recycle.layoutManager = LinearLayoutManager(ctx, LinearLayout.HORIZONTAL, false)
         holder.recycle.setHasFixedSize(true)
-        holder.recycle.adapter = Main_RecyclerViewAdapter_Page2_Item(ctx, arrayMainUserList[position])
+        holder.recycle.adapter = Main_RecyclerViewAdapter_Page2_Item(ctx, userList[position].arrayList)
     }
 
     override fun getItemCount(): Int {

@@ -34,6 +34,6 @@ class Main_Fragment_Page2 : Fragment() {
 
         recyclerView_page2.layoutManager = LinearLayoutManager(ctx, LinearLayout.VERTICAL, false)
         recyclerView_page2.setHasFixedSize(true)
-        recyclerView_page2.adapter = Main_RecyclerViewAdapter_Page2(ctx, MainUserList)
+        recyclerView_page2.adapter = Main_RecyclerViewAdapter_Page2(ctx, MainUserList_Url)
     }
 }
