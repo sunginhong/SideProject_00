@@ -8,6 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.main_fragment_page3.*
+import java.util.*
+
+
+
+
+
+
 
 class Main_Fragment_Page3 : Fragment() {
 
@@ -34,6 +41,47 @@ class Main_Fragment_Page3 : Fragment() {
 
         recyclerView_page3.layoutManager = LinearLayoutManager(ctx, LinearLayout.VERTICAL, false)
         recyclerView_page3.setHasFixedSize(true)
-        recyclerView_page3.adapter = Main_ExpandableListAdapter(ctx, Main_ExUserList)
+//        recyclerView_page3.adapter = Main_ExpandableListAdapter(ctx, Main_ExUserList)
+        val data = ArrayList<Main_ExpandableListAdapter.Item>()
+
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.HEADER, "A"))
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "0-1"))
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "0-2"))
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "0-3"))
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "0-4"))
+
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.HEADER, "B"))
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "1-1"))
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "1-2"))
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "1-3"))
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "1-4"))
+
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.HEADER, "C"))
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "2-1"))
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "2-2"))
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "2-3"))
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "2-4"))
+
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.HEADER, "D"))
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "3-1"))
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "3-2"))
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "3-3"))
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "3-4"))
+
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.HEADER, "E"))
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "4-1"))
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "4-2"))
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "4-3"))
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "4-4"))
+
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.HEADER, "F"))
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "5-1"))
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "5-2"))
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "5-3"))
+        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "5-4"))
+
+        recyclerView_page3.adapter = Main_ExpandableListAdapter(ctx, data)
     }
+
+
 }

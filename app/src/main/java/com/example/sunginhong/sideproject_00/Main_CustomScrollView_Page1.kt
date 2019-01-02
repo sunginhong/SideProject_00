@@ -14,7 +14,6 @@ class Main_CustomScrollView_Page1 : ScrollView {
         var mainSet = false
     }
 
-
     private var ScrollViewListener: ScrollView? = null
     private var currentlyTouching = false
     private var currentlyScrolling = false

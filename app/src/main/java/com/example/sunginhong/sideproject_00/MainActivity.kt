@@ -36,8 +36,8 @@ class MainActivity : AppCompatActivity() {
         bottomButtonSet()
 
         val timer = Timer()
-        var ss = Utils_Animation.ValueAnimator(0f, 400f, 1000)
         timer.schedule(timerTask {  }, 300)
+        var ss = Utils_Animation.ValueAnimator(0f, 400f, 1000)
     }
 
     fun context(): Context {
