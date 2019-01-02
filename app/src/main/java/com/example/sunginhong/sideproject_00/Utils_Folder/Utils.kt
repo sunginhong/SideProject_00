@@ -1,4 +1,4 @@
-package com.example.sunginhong.sideproject_00
+package com.example.sunginhong.sideproject_00.Utils_Folder
 
 import android.content.res.Resources
 

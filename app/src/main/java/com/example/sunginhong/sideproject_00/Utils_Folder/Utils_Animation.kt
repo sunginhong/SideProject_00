@@ -1,4 +1,4 @@
-package com.example.sunginhong.sideproject_00
+package com.example.sunginhong.sideproject_00.Utils_Folder
 
 import android.animation.ValueAnimator
 import android.view.View
@@ -36,7 +36,8 @@ internal object Utils_Animation {
     }
 
     fun LayoutHeightAnim(view:View, targetHeight:Int, duration:Long){
-        val resizeHeightAnimation = Resize_HeightAnimation(view, targetHeight)
+        val resizeHeightAnimation =
+            Resize_HeightAnimation(view, targetHeight)
         resizeHeightAnimation.fillAfter = true
         resizeHeightAnimation.interpolator = DecelerateInterpolator(1.5.toFloat())
         resizeHeightAnimation.duration = duration
@@ -44,7 +45,8 @@ internal object Utils_Animation {
     }
 
     fun LayoutFitAnim(view:View, targetHeight:Int, targetWidth: Int, duration:Long){
-        val resizeFitAnimation = Resize_FitAnimation(view, targetHeight, targetWidth)
+        val resizeFitAnimation =
+            Resize_FitAnimation(view, targetHeight, targetWidth)
         resizeFitAnimation.fillAfter = true
         resizeFitAnimation.interpolator = DecelerateInterpolator(1.5.toFloat())
         resizeFitAnimation.duration = duration

@@ -1,4 +1,6 @@
-package com.example.sunginhong.sideproject_00
+package com.example.sunginhong.sideproject_00.Model_User_Json
+
+import com.example.sunginhong.sideproject_00.Model_User.Main_User_min
 
 class Main_User_MinArr_Catch {
 

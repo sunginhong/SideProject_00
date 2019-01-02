@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.example.sunginhong.sideproject_00.Model_User.Main_User_min
 import java.util.*
 
 class Main_ViewPagerAdapter_Page1(val context: Context, val userList:ArrayList<Main_User_min>) :

@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.example.sunginhong.sideproject_00.Model_User.Main_User_Url
 import kotlinx.android.synthetic.main.item_raw_page2_item.view.*
 
 class Main_RecyclerViewAdapter_Page2(val context: Context, val userList:ArrayList<Main_User_Url>): RecyclerView.Adapter<Main_RecyclerViewAdapter_Page2.ViewHolder>() {

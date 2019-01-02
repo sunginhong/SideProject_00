@@ -5,6 +5,8 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.ImageButton
+import com.example.sunginhong.sideproject_00.Utils_Folder.Utils_Animation
+import com.example.sunginhong.sideproject_00.Utils_Folder.getScreenSize
 import kotlinx.android.synthetic.main.main_bottom_actionbar.*
 import java.util.*
 import kotlin.concurrent.timerTask

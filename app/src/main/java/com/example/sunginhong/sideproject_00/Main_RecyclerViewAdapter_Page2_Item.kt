@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.example.sunginhong.sideproject_00.Model_User.Main_User_min
 import kotlinx.android.synthetic.main.item_raw_page2_item_cardview.view.*
 
 class Main_RecyclerViewAdapter_Page2_Item(val context: Context, val userList:ArrayList<Main_User_min>): RecyclerView.Adapter<Main_RecyclerViewAdapter_Page2_Item.ViewHolder>() {
