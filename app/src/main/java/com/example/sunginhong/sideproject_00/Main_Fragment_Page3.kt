@@ -9,6 +9,8 @@ import com.example.sunginhong.sideproject_00.Test.Test_Exp_ListCustomAdapter
 import com.example.sunginhong.sideproject_00.Test.Test_Exp_Prototype_myGroup
 import kotlinx.android.synthetic.main.main_fragment_page3.*
 
+
+@Suppress("UNREACHABLE_CODE")
 class Main_Fragment_Page3 : Fragment() {
     var lastClickedPosition = 0
     companion object {
@@ -66,6 +68,7 @@ class Main_Fragment_Page3 : Fragment() {
         )
 //        main_protoList.setIndicatorBounds(MainActivity.screenWidth - 50, MainActivity.screenWidth)
         main_protoList.setAdapter(adapter)
+
         main_protoList.setOnGroupClickListener { parent, v, groupPosition, id ->
             // Listener 에서 Adapter 사용법 (getExpandableListAdapter 사용해야함.)
             // BaseExpandableAdpater에 오버라이드 된 함수들을 사용할 수 있다.
@@ -98,3 +101,4 @@ class Main_Fragment_Page3 : Fragment() {
 
 
 }
+

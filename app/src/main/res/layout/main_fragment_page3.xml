@@ -22,7 +22,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-
             <android.support.v4.widget.NestedScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -33,17 +32,22 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
-                    <ExpandableListView
+                    <com.example.sunginhong.sideproject_00.Test.Test_Exp_NonScrollExpandableListView
                             android:id="@+id/main_protoList"
+                            android:clipChildren="false"
+                            android:nestedScrollingEnabled="false"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:groupIndicator="@null"
                             android:dividerHeight="0dp"
                             android:divider="#00000000"
                             android:childDivider="#00000000"
-                            android:clipChildren="false"
                             android:transcriptMode="disabled"
-                            android:nestedScrollingEnabled="true"
+                        />
+
+                    <View
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="100dp"/>
 
                 </LinearLayout>
             </android.support.v4.widget.NestedScrollView>
