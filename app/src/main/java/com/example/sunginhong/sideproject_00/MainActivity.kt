@@ -21,6 +21,9 @@ class MainActivity : AppCompatActivity() {
     companion object {
         var screenHeight = 0
         var screenWidth = 0
+        var URL_JSON = "http://rstudi0.cafe24.com/json/"
+        var URL_THUMB_IMG = "http://rstudi0.cafe24.com/json/img/"
+        var URL_LINK = "http://jjangik.com/"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

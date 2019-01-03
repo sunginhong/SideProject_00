@@ -10,11 +10,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
-import com.example.sunginhong.sideproject_00.Model_User.Main_User_min
-import java.util.*
 
-class Main_ViewPagerAdapter_Page1(val context: Context, val userList:ArrayList<Main_User_min>) :
+class Main_ViewPagerAdapter_Page1(val context: Context, internal var arrayList: java.util.ArrayList<Array<String>>) :
     PagerAdapter() {
+
+    companion object {
+        private val MAX_POOL_SIZE = 10
+    }
+
     internal var items: MutableList<String> = ArrayList()
     private val mInflater: LayoutInflater
     private val mMyViewPool: Pools.SimplePool<View>
@@ -30,7 +33,7 @@ class Main_ViewPagerAdapter_Page1(val context: Context, val userList:ArrayList<M
     }
 
     override fun getCount(): Int {
-        return userList.size
+        return arrayList.size
     }
 
     override fun getPageWidth(position: Int): Float {
@@ -39,6 +42,8 @@ class Main_ViewPagerAdapter_Page1(val context: Context, val userList:ArrayList<M
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         var view: View? = null
+        val detail = arrayList[position]
+
         view = mInflater.inflate(R.layout.item_vpfragment_page1, null)
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val rootView = inflater.inflate(R.layout.item_vpfragment_page1, container, false)
@@ -47,10 +52,10 @@ class Main_ViewPagerAdapter_Page1(val context: Context, val userList:ArrayList<M
         val mainVp_textSubTitle = view.findViewById(R.id.mainVp_textSubTitle) as TextView
         val mainVp_imageThumb = view.findViewById(R.id.mainVp_imageThumb) as ImageView
 
-        mainVp_textTitle.setText(userList[position].title)
-        mainVp_textSubTitle.setText(userList[position].subTitle)
+        mainVp_textTitle.setText(detail[0])
+        mainVp_textSubTitle.setText(detail[1])
         Glide.with(context)
-            .load(userList[position].imgThumb_Url)
+            .load(MainActivity.URL_THUMB_IMG + detail[2])
             .into(mainVp_imageThumb)
 
         (container as ViewPager).addView(view, position)
@@ -64,10 +69,6 @@ class Main_ViewPagerAdapter_Page1(val context: Context, val userList:ArrayList<M
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
         return view === `object`
-    }
-
-    companion object {
-        private val MAX_POOL_SIZE = 10
     }
 
 }

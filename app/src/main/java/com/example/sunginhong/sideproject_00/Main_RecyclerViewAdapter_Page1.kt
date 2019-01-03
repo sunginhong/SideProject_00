@@ -1,5 +1,6 @@
 package com.example.sunginhong.sideproject_00
 
+
 import android.content.Context
 import android.content.Intent
 import android.support.constraint.ConstraintLayout
@@ -10,15 +11,15 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
-import com.example.sunginhong.sideproject_00.Model_User.Main_User
+import com.example.sunginhong.sideproject_00.MainActivity.Companion.URL_THUMB_IMG
 import kotlinx.android.synthetic.main.item_raw_page1.view.*
+import java.util.*
 
-
-class Main_RecyclerViewAdapter_Page1(val context: Context, val userList:ArrayList<Main_User>):RecyclerView.Adapter<Main_RecyclerViewAdapter_Page1.ViewHolder>(),
-    View.OnClickListener {
-
+class Main_RecyclerViewAdapter_Page1(internal var context: Context, internal var arrayList: ArrayList<Array<String>>) :
+    RecyclerView.Adapter<Main_RecyclerViewAdapter_Page1.ViewHolder>(), View.OnClickListener {
     var c = context;
-    internal var testTitleArray = arrayOfNulls<String>(100)
+    private var view: ViewHolder? = null
+    private var testTitleArray = arrayOfNulls<String>(100)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Main_RecyclerViewAdapter_Page1.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.item_raw_page1, parent, false)
@@ -26,20 +27,21 @@ class Main_RecyclerViewAdapter_Page1(val context: Context, val userList:ArrayLis
     }
 
     override fun onBindViewHolder(holder: Main_RecyclerViewAdapter_Page1.ViewHolder, position: Int) {
-        holder.lst_layout.id = position
-        holder.title.text = userList[position].title
-        holder.subTitle.text = userList[position].subTitle
-        Glide.with(c)
-            .load(userList[position].imgThumb_Url)
-            .into(holder.imgThumb)
+        view = holder
+        val detail = arrayList[position]
 
         holder.lst_layout.id = position
+        holder.title.text = detail[0]
+        holder.subTitle.text = detail[1]
+        Glide.with(c)
+            .load(URL_THUMB_IMG + detail[2])
+            .into(holder.imgThumb)
         holder.lst_layout.setOnClickListener(this)
-        testTitleArray[position] = userList[position].title
+        testTitleArray[position] = detail[0]
     }
 
     override fun getItemCount(): Int {
-        return userList.size
+        return arrayList.size
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -68,6 +70,7 @@ class Main_RecyclerViewAdapter_Page1(val context: Context, val userList:ArrayLis
     }
 
 }
+
 
 
 
