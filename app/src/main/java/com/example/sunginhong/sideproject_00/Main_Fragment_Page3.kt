@@ -2,22 +2,15 @@ package com.example.sunginhong.sideproject_00
 
 import android.app.Fragment
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
+import com.example.sunginhong.sideproject_00.Test.Test_Exp_ListCustomAdapter
+import com.example.sunginhong.sideproject_00.Test.Test_Exp_Prototype_myGroup
 import kotlinx.android.synthetic.main.main_fragment_page3.*
-import java.util.*
-
-
-
-
-
-
 
 class Main_Fragment_Page3 : Fragment() {
-
+    var lastClickedPosition = 0
     companion object {
     }
 
@@ -39,48 +32,68 @@ class Main_Fragment_Page3 : Fragment() {
     private fun init(){
         val ctx = context ?: return
 
-        recyclerView_page3.layoutManager = LinearLayoutManager(ctx, LinearLayout.VERTICAL, false)
-        recyclerView_page3.setHasFixedSize(true)
-//        recyclerView_page3.adapter = Main_ExpandableListAdapter(ctx, Main_ExUserList)
-        val data = ArrayList<Main_ExpandableListAdapter.Item>()
+        val DataList = ArrayList<Test_Exp_Prototype_myGroup>()
 
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.HEADER, "A"))
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "0-1"))
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "0-2"))
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "0-3"))
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "0-4"))
+        var temp = Test_Exp_Prototype_myGroup("[Title] A")
+        temp.childExp.add("A-0")
+        temp.childExp.add("A-1")
+        temp.childExp.add("A-2")
+        temp.childExp.add("A-3")
+        temp.childExp.add("A-4")
+        temp.childExp.add("A-5")
+        DataList.add(temp)
 
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.HEADER, "B"))
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "1-1"))
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "1-2"))
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "1-3"))
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "1-4"))
+        temp = Test_Exp_Prototype_myGroup("[Title] B")
+        temp.childExp.add("B-0")
+        temp.childExp.add("B-1")
+        temp.childExp.add("B-2")
+        temp.childExp.add("B-3")
+        temp.childExp.add("B-4")
+        temp.childExp.add("B-5")
+        DataList.add(temp)
 
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.HEADER, "C"))
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "2-1"))
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "2-2"))
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "2-3"))
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "2-4"))
+        temp = Test_Exp_Prototype_myGroup("[Title] C")
+        temp.childExp.add("C-0")
+        temp.childExp.add("C-1")
+        temp.childExp.add("C-2")
+        DataList.add(temp)
 
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.HEADER, "D"))
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "3-1"))
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "3-2"))
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "3-3"))
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "3-4"))
+        val adapter = Test_Exp_ListCustomAdapter(
+            ctx,
+            R.layout.test_exp_row_main,
+            R.layout.test_exp_row_child,
+            DataList
+        )
+//        main_protoList.setIndicatorBounds(MainActivity.screenWidth - 50, MainActivity.screenWidth)
+        main_protoList.setAdapter(adapter)
+        main_protoList.setOnGroupClickListener { parent, v, groupPosition, id ->
+            // Listener 에서 Adapter 사용법 (getExpandableListAdapter 사용해야함.)
+            // BaseExpandableAdpater에 오버라이드 된 함수들을 사용할 수 있다.
+            val groupCount = parent.expandableListAdapter.groupCount
+            val childCount = parent.expandableListAdapter.getChildrenCount(groupPosition)
 
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.HEADER, "E"))
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "4-1"))
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "4-2"))
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "4-3"))
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "4-4"))
+            val isExpand = !main_protoList.isGroupExpanded(groupPosition)
 
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.HEADER, "F"))
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "5-1"))
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "5-2"))
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "5-3"))
-        data.add(Main_ExpandableListAdapter.Item(Main_ExpandableListAdapter.CHILD, "5-4"))
+            // 이 전에 열려있던 group 닫기
+//            main_protoList.collapseGroup(lastClickedPosition)
 
-        recyclerView_page3.adapter = Main_ExpandableListAdapter(ctx, data)
+            if (isExpand) {
+                main_protoList.expandGroup(groupPosition)
+            } else {
+                main_protoList.collapseGroup(groupPosition)
+            }
+
+            lastClickedPosition = groupPosition
+
+            true
+        }
+
+        // 차일드 클릭 했을 경우 이벤트
+        main_protoList.setOnChildClickListener { parent, v, groupPosition, childPosition, id ->
+            false
+        }
+        // 그룹이 닫힐 경우 이벤트
+        main_protoList.setOnGroupCollapseListener { }
     }
 
 
