@@ -29,6 +29,7 @@ class Main_RecyclerViewAdapter_Page2(val context: Context, val userList:ArrayLis
         holder.lst_layout.id = position
         holder.title.text = userList[position].title
         holder.subTitle.text = userList[position].subTitle
+        Glide.with(holder.imgThumb.getContext()).clear(holder.imgThumb)
         Glide.with(c)
             .load(userList[position].imgThumb_Url)
             .into(holder.imgThumb)

@@ -49,6 +49,7 @@ class Main_ViewPagerAdapter_Page1(val context: Context, val userList:ArrayList<M
 
         mainVp_textTitle.setText(userList[position].title)
         mainVp_textSubTitle.setText(userList[position].subTitle)
+        Glide.with(mainVp_imageThumb.getContext()).clear(mainVp_imageThumb)
         Glide.with(context)
             .load(userList[position].imgThumb_Url)
             .into(mainVp_imageThumb)
