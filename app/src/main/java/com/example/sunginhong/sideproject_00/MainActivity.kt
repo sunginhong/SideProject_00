@@ -1,12 +1,12 @@
 package com.example.sunginhong.sideproject_00
 
-import android.app.Fragment
 import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.ImageButton
 import com.example.sunginhong.sideproject_00.Utils_Folder.Utils_Animation
 import com.example.sunginhong.sideproject_00.Utils_Folder.getScreenSize
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.main_bottom_actionbar.*
 import java.util.*
 import kotlin.concurrent.timerTask
@@ -33,7 +33,11 @@ class MainActivity : AppCompatActivity() {
         screenHeight = getScreenSize(this).y
         screenWidth = getScreenSize(this).x
 
-        arrayBtmButton.add(bottomMenu_btn_write)
+        val pagerAdapter = Main_PagerAdapter(supportFragmentManager)
+        mainvp.adapter = pagerAdapter
+        mainvp.setCurrentItem(0)
+
+//        arrayBtmButton.add(bottomMenu_btn_write)
         arrayBtmButton.add(bottomMenu_btn_home)
         arrayBtmButton.add(bottomMenu_btn_search)
         arrayBtmButton.add(bottomMenu_btn_my)
@@ -54,34 +58,22 @@ class MainActivity : AppCompatActivity() {
             arrayBtmButton[i].setOnClickListener {
                 if (i == 0 && selectBottomIndex != 0){
                     selectBottomIndex = 0
-                    fragmentReplace(Main_Fragment_Page0())
                 }
                 if (i == 1 && selectBottomIndex != 1){
                     selectBottomIndex = 1
-                    fragmentReplace(Main_Fragment_Page1())
                 }
                 if (i == 2 && selectBottomIndex != 2){
                     selectBottomIndex = 2
-                    fragmentReplace(Main_Fragment_Page2())
                 }
                 if (i == 3 && selectBottomIndex != 3){
                     selectBottomIndex = 3
-                    fragmentReplace(Main_Fragment_Page3())
                 }
                 if (i == 4 && selectBottomIndex != 4){
                     selectBottomIndex = 4
-                    fragmentReplace(Main_Fragment_Page4())
                 }
+                mainvp.setCurrentItem(selectBottomIndex)
             }
         }
     }
-
-    fun fragmentReplace(fragment: Fragment){
-        val transaction = fragmentManager.beginTransaction()
-        transaction.replace(R.id.main_fragment, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
-    }
-
 }
 
