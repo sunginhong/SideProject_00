@@ -73,13 +73,14 @@
                     android:layout_below="@+id/linear_layout"
                     android:layout_marginBottom="14dp"
                     android:layerType="software" />
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="17sp"
-                    android:textColor="#666666"
-                    android:lineSpacingExtra="3sp"
-                    android:layout_marginBottom="14dp" android:text="29 Reviews"/>
+            <!--<TextView-->
+                    <!--android:id="@+id/mainList_size_textTitle"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textSize="17sp"-->
+                    <!--android:textColor="#666666"-->
+                    <!--android:lineSpacingExtra="3sp"-->
+                    <!--android:layout_marginBottom="14dp" android:text="29 Reviews"/>-->
         </LinearLayout>
         <ScrollView
                 android:layout_width="match_parent"

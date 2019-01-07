@@ -1,6 +1,7 @@
 package com.example.sunginhong.sideproject_00
 
 import android.content.Context
+import android.content.Intent
 import android.support.v4.util.Pools
 import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
@@ -15,11 +16,14 @@ import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 import java.util.*
 
+
+
 class Main_ViewPagerAdapter_Page1(val context: Context, val userList:ArrayList<Main_User_min>) :
-    PagerAdapter() {
+    PagerAdapter(), View.OnClickListener {
     internal var items: MutableList<String> = ArrayList()
     private val mInflater: LayoutInflater
     private val mMyViewPool: Pools.SimplePool<View>
+    internal var frag0_VpArray = arrayOfNulls<String>(100)
 
     init {
         mInflater = LayoutInflater.from(context)
@@ -68,6 +72,10 @@ class Main_ViewPagerAdapter_Page1(val context: Context, val userList:ArrayList<M
 
         (container as ViewPager).addView(view, position)
 
+        mainVp_imageThumb.id = position
+        mainVp_imageThumb.setOnClickListener(this);
+        frag0_VpArray[position] = userList[position].title
+
         return view
     }
 
@@ -83,4 +91,10 @@ class Main_ViewPagerAdapter_Page1(val context: Context, val userList:ArrayList<M
         private val MAX_POOL_SIZE = 10
     }
 
+    override fun onClick(view: View) {
+        val nextIntent = Intent(context, DetailActivity_Test::class.java)
+        val putExtra = nextIntent.putExtra("testId", frag0_VpArray[view!!.id])
+        view!!.context.startActivity(nextIntent)
+    }
 }
+

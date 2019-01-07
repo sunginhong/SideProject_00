@@ -31,28 +31,18 @@ class Main_RecyclerViewAdapter_Page2(val context: Context, val userList:ArrayLis
     }
 
     override fun onBindViewHolder(holder: Main_RecyclerViewAdapter_Page2.ViewHolder, position: Int) {
+        val ctx = context ?: return
+
         holder.lst_layout.id = position
         holder.title.text = userList[position].title
         holder.subTitle.text = userList[position].subTitle
-//        Glide.with(holder.imgThumb.getContext()).clear(holder.imgThumb)
-//////        Glide.with(c).load(userList[position].imgThumb_Url)
-//////            .apply(
-//////                RequestOptions()
-//////                    .placeholder(R.mipmap.ic_launcher)
-//////                    .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-//////            )
-//////
-//////            .into(holder.imgThumb)
+
         Picasso.get()
             .load(userList[position].imgThumb_Url)
             .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
             .networkPolicy(NetworkPolicy.NO_CACHE, NetworkPolicy.NO_STORE)
             .into(holder.imgThumb)
 
-        val ctx = context ?: return
-//        holder.recycle.layoutManager = LinearLayoutManager(ctx, LinearLayout.HORIZONTAL, false)
-//        holder.recycle.setHasFixedSize(true)
-//        holder.recycle.adapter = Main_RecyclerViewAdapter_Page2_Item(ctx, userList[position].arrayList)
         val linearLayoutManager = LinearLayoutManager(ctx, LinearLayoutManager.HORIZONTAL, false)
         linearLayoutManager.isAutoMeasureEnabled = true
         holder.recycle.adapter = Main_RecyclerViewAdapter_Page2_Item(ctx, userList[position].arrayList)

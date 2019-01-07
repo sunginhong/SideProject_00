@@ -22,6 +22,7 @@ class Main_RecyclerViewAdapter_Page2_Item(val context: Context, val userList:Arr
     }
 
     override fun onBindViewHolder(holder: Main_RecyclerViewAdapter_Page2_Item.ViewHolder, position: Int) {
+        val ctx = context ?: return
         holder.lst_layout.id = position
         holder.title.text = userList[position].title
         holder.subTitle.text = userList[position].subTitle

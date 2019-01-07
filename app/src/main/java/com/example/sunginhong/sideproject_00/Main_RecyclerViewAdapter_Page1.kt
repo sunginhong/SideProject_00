@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.item_raw_page1.view.*
 class Main_RecyclerViewAdapter_Page1(val context: Context, val userList:ArrayList<Main_User>):RecyclerView.Adapter<Main_RecyclerViewAdapter_Page1.ViewHolder>(),
     View.OnClickListener {
     var c = context
-    internal var testTitleArray = arrayOfNulls<String>(100)
+    internal var frag0_rvArray = arrayOfNulls<String>(100)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Main_RecyclerViewAdapter_Page1.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.item_raw_page1, parent, false)
@@ -29,6 +29,7 @@ class Main_RecyclerViewAdapter_Page1(val context: Context, val userList:ArrayLis
     }
 
     override fun onBindViewHolder(holder: Main_RecyclerViewAdapter_Page1.ViewHolder, position: Int) {
+        val ctx = context ?: return
         holder.lst_layout.id = position
         holder.title.text = userList[position].title
         holder.subTitle.text = userList[position].subTitle
@@ -54,7 +55,7 @@ class Main_RecyclerViewAdapter_Page1(val context: Context, val userList:ArrayLis
 
         holder.lst_layout.id = position
         holder.lst_layout.setOnClickListener(this)
-        testTitleArray[position] = userList[position].title
+        frag0_rvArray[position] = userList[position].title
 
         super.onViewRecycled(holder)
     }
@@ -85,7 +86,7 @@ class Main_RecyclerViewAdapter_Page1(val context: Context, val userList:ArrayLis
 
     override fun onClick(view: View?) {
         val nextIntent = Intent(context, DetailActivity_Test::class.java)
-        val putExtra = nextIntent.putExtra("testId", testTitleArray[view!!.id])
+        val putExtra = nextIntent.putExtra("testId", frag0_rvArray[view!!.id])
         view!!.context.startActivity(nextIntent)
     }
 }

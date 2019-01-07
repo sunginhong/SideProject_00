@@ -1,8 +1,11 @@
 package com.example.sunginhong.sideproject_00
 
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.test_detail_activity.*
+
+
 
 
 class DetailActivity_Test : AppCompatActivity() {
@@ -14,5 +17,15 @@ class DetailActivity_Test : AppCompatActivity() {
         val intent = intent
         val testId = intent.getStringExtra("testId")
         testDetail_textView.text = testId
+    }
+
+    override fun onResume() {
+        this.overridePendingTransition(R.anim.activity_slide_in, R.anim.activity_slide_out)
+        super.onResume()
+    }
+
+    override fun onBackPressed() {
+        ActivityCompat.finishAfterTransition(this)
+        this.overridePendingTransition(R.anim.activity_slide_in2, R.anim.activity_slide_out2)
     }
 }
