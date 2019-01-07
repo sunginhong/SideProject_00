@@ -7,7 +7,7 @@
              android:layout_height="match_parent"
              android:orientation="vertical"
              android:background="#FFFFFF"
-             tools:context="com.example.sunginhong.sideproject_00.Main_Fragment_Page2">
+             tools:context="com.example.sunginhong.sideproject_00.Main_Fragment_Page3">
 
     <com.example.sunginhong.sideproject_00.Main_CustomScrollView_Page3
             android:id="@+id/main_scrollview_page3"
