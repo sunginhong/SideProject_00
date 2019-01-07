@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import com.example.sunginhong.sideproject_00.Model_User_Json.MainUserList
 import com.example.sunginhong.sideproject_00.Model_User_Json.MainUserList_Min00
 import kotlinx.android.synthetic.main.main_fragment_page1.*
@@ -18,6 +19,7 @@ class Main_Fragment_Page1 : Fragment(){
 
     companion object {
         var PAGE_ITEM_COUNT: Int = 0
+        var mainVp_imageThumb_Array = arrayOfNulls<ImageView>(0)
     }
 
     fun newInstance(): Main_Fragment_Page1 {
@@ -55,6 +57,7 @@ class Main_Fragment_Page1 : Fragment(){
         ViewCompat.setNestedScrollingEnabled(recyclerView_page1, false);
         PAGE_ITEM_COUNT = MainUserList.size
 
+        mainVp_imageThumb_Array = arrayOfNulls<ImageView>(MainUserList_Min00.size)
         vp.adapter = Main_ViewPagerAdapter_Page1(ctx, MainUserList_Min00)
         vp.clipToPadding = false
         vp.pageMargin = 0
@@ -62,6 +65,5 @@ class Main_Fragment_Page1 : Fragment(){
         val MainVp_PagerInteraction = Main_CustomVp_frag0_Interaction(vp, ctx)
 
         tab_layout.setupWithViewPager(vp, true)
-
     }
 }

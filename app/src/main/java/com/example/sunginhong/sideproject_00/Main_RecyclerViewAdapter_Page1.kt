@@ -45,7 +45,6 @@ class Main_RecyclerViewAdapter_Page1(val context: Context, val userList:ArrayLis
 //            )
 //
 //            .into(holder.imgThumb)
-//        Picasso.get().load(userList[position].imgThumb_Url).into(holder.imgThumb);
 
         Picasso.get()
             .load(userList[position].imgThumb_Url)
