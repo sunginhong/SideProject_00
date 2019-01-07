@@ -9,8 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import com.bumptech.glide.Glide
 import com.example.sunginhong.sideproject_00.Model_User.Main_User_min
+import com.squareup.picasso.MemoryPolicy
+import com.squareup.picasso.NetworkPolicy
+import com.squareup.picasso.Picasso
 import java.util.*
 
 class Main_ViewPagerAdapter_Page1(val context: Context, val userList:ArrayList<Main_User_min>) :
@@ -49,9 +51,19 @@ class Main_ViewPagerAdapter_Page1(val context: Context, val userList:ArrayList<M
 
         mainVp_textTitle.setText(userList[position].title)
         mainVp_textSubTitle.setText(userList[position].subTitle)
-        Glide.with(mainVp_imageThumb.getContext()).clear(mainVp_imageThumb)
-        Glide.with(context)
+//        Glide.with(mainVp_imageThumb.getContext()).clear(mainVp_imageThumb)
+//        Glide.with(context).load(userList[position].imgThumb_Url)
+//            .apply(
+//                RequestOptions()
+//                    .placeholder(R.mipmap.ic_launcher)
+//                    .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+//            )
+//
+//            .into(mainVp_imageThumb)
+        Picasso.get()
             .load(userList[position].imgThumb_Url)
+            .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
+            .networkPolicy(NetworkPolicy.NO_CACHE, NetworkPolicy.NO_STORE)
             .into(mainVp_imageThumb)
 
         (container as ViewPager).addView(view, position)

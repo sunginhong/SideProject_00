@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         val pagerAdapter = Main_PagerAdapter(supportFragmentManager)
         mainvp.adapter = pagerAdapter
-        mainvp.setCurrentItem(0)
+//        mainvp.setCurrentItem(0)
 
 //        arrayBtmButton.add(bottomMenu_btn_write)
         arrayBtmButton.add(bottomMenu_btn_home)

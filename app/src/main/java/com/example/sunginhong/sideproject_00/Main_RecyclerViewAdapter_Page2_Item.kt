@@ -8,8 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import com.bumptech.glide.Glide
 import com.example.sunginhong.sideproject_00.Model_User.Main_User_min
+import com.squareup.picasso.MemoryPolicy
+import com.squareup.picasso.NetworkPolicy
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_raw_page2_item_cardview.view.*
 
 class Main_RecyclerViewAdapter_Page2_Item(val context: Context, val userList:ArrayList<Main_User_min>): RecyclerView.Adapter<Main_RecyclerViewAdapter_Page2_Item.ViewHolder>() {
@@ -23,9 +25,13 @@ class Main_RecyclerViewAdapter_Page2_Item(val context: Context, val userList:Arr
         holder.lst_layout.id = position
         holder.title.text = userList[position].title
         holder.subTitle.text = userList[position].subTitle
-        Glide.with(c)
+        Picasso.get()
             .load(userList[position].imgThumb_Url)
+            .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
+            .networkPolicy(NetworkPolicy.NO_CACHE, NetworkPolicy.NO_STORE)
             .into(holder.imgThumb)
+
+        super.onViewRecycled(holder)
     }
 
     override fun getItemCount(): Int {

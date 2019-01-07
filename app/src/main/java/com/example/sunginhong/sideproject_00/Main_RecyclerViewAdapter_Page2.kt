@@ -8,11 +8,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
-import com.bumptech.glide.Glide
 import com.example.sunginhong.sideproject_00.Model_User.Main_User_Url
+import com.squareup.picasso.MemoryPolicy
+import com.squareup.picasso.NetworkPolicy
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_raw_page2_item.view.*
+
+
+
+
 
 class Main_RecyclerViewAdapter_Page2(val context: Context, val userList:ArrayList<Main_User_Url>): RecyclerView.Adapter<Main_RecyclerViewAdapter_Page2.ViewHolder>() {
     var c = context;
@@ -29,15 +34,31 @@ class Main_RecyclerViewAdapter_Page2(val context: Context, val userList:ArrayLis
         holder.lst_layout.id = position
         holder.title.text = userList[position].title
         holder.subTitle.text = userList[position].subTitle
-        Glide.with(holder.imgThumb.getContext()).clear(holder.imgThumb)
-        Glide.with(c)
+//        Glide.with(holder.imgThumb.getContext()).clear(holder.imgThumb)
+//////        Glide.with(c).load(userList[position].imgThumb_Url)
+//////            .apply(
+//////                RequestOptions()
+//////                    .placeholder(R.mipmap.ic_launcher)
+//////                    .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+//////            )
+//////
+//////            .into(holder.imgThumb)
+        Picasso.get()
             .load(userList[position].imgThumb_Url)
+            .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
+            .networkPolicy(NetworkPolicy.NO_CACHE, NetworkPolicy.NO_STORE)
             .into(holder.imgThumb)
 
         val ctx = context ?: return
-        holder.recycle.layoutManager = LinearLayoutManager(ctx, LinearLayout.HORIZONTAL, false)
-        holder.recycle.setHasFixedSize(true)
+//        holder.recycle.layoutManager = LinearLayoutManager(ctx, LinearLayout.HORIZONTAL, false)
+//        holder.recycle.setHasFixedSize(true)
+//        holder.recycle.adapter = Main_RecyclerViewAdapter_Page2_Item(ctx, userList[position].arrayList)
+        val linearLayoutManager = LinearLayoutManager(ctx, LinearLayoutManager.HORIZONTAL, false)
+        linearLayoutManager.isAutoMeasureEnabled = true
         holder.recycle.adapter = Main_RecyclerViewAdapter_Page2_Item(ctx, userList[position].arrayList)
+        holder.recycle.setLayoutManager(linearLayoutManager)
+
+        super.onViewRecycled(holder)
     }
 
     override fun getItemCount(): Int {

@@ -5,13 +5,12 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import android.widget.ScrollView
-import kotlinx.android.synthetic.main.main_fragment_page1.view.*
 
 
 class Main_CustomScrollView_Page1 : ScrollView {
 
     companion object {
-        var mainSet = false
+//        var mainSet = false
     }
 
     private var ScrollViewListener: ScrollView? = null
@@ -52,7 +51,6 @@ class Main_CustomScrollView_Page1 : ScrollView {
     override fun onScrollChanged(scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int) {
         super.onScrollChanged(scrollX, scrollY, oldScrollX, oldScrollY)
         //SCROLL MOVE
-        mainSet()
     }
 
     fun checkIfScrollStart(){
@@ -60,10 +58,7 @@ class Main_CustomScrollView_Page1 : ScrollView {
     }
 
     private fun mainSet(){
-        if (!mainSet){
-            main_scrollview_page1.scrollTo(0, 0)
-            mainSet = true
-        }
+
     }
 
 }

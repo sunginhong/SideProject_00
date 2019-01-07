@@ -2,14 +2,15 @@ package com.example.sunginhong.sideproject_00
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.view.ViewCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import com.example.sunginhong.sideproject_00.Model_User_Json.MainUserList
 import com.example.sunginhong.sideproject_00.Model_User_Json.MainUserList_Min00
 import kotlinx.android.synthetic.main.main_fragment_page1.*
+
 
 class Main_Fragment_Page1 : Fragment(){
 
@@ -41,18 +42,19 @@ class Main_Fragment_Page1 : Fragment(){
 
     private fun init (){
         val ctx = context ?: return
-        val mAdapter = Main_ViewPagerAdapter_Page1(ctx,
-            MainUserList_Min00
-        )
-        vp.setAdapter(mAdapter)
-        vp.setClipToPadding(false)
-        vp.setPageMargin(0)
-        vp.setOffscreenPageLimit(MainUserList_Min00.size)
 
-        recyclerView_page1.layoutManager = LinearLayoutManager(ctx, LinearLayout.VERTICAL, false)
+        val linearLayoutManager = LinearLayoutManager(ctx, LinearLayoutManager.VERTICAL, false)
+        linearLayoutManager.isAutoMeasureEnabled = true
+        recyclerView_page1.isNestedScrollingEnabled = false
+        recyclerView_page1.adapter = Main_RecyclerViewAdapter_Page1(ctx, MainUserList)
+        recyclerView_page1.layoutManager = linearLayoutManager
         recyclerView_page1.setHasFixedSize(true)
-        recyclerView_page1.adapter = Main_RecyclerViewAdapter_Page1(ctx,
-            MainUserList
-        )
+        ViewCompat.setNestedScrollingEnabled(recyclerView_page1, false);
+
+        vp.adapter = Main_ViewPagerAdapter_Page1(ctx, MainUserList_Min00)
+        vp.clipToPadding = false
+        vp.pageMargin = 0
+        vp.offscreenPageLimit = MainUserList_Min00.size
+
     }
 }

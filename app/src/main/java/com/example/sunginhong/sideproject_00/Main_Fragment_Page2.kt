@@ -2,11 +2,11 @@ package com.example.sunginhong.sideproject_00
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.view.ViewCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import com.example.sunginhong.sideproject_00.Model_User_Json.MainUserList_Url
 import kotlinx.android.synthetic.main.main_fragment_page2.*
 
@@ -41,10 +41,14 @@ class Main_Fragment_Page2 : Fragment() {
     private fun init (){
         val ctx = context ?: return
 
-        recyclerView_page2.layoutManager = LinearLayoutManager(ctx, LinearLayout.VERTICAL, false)
+        val linearLayoutManager = LinearLayoutManager(ctx, LinearLayoutManager.VERTICAL, false)
         recyclerView_page2.setHasFixedSize(true)
-        recyclerView_page2.adapter = Main_RecyclerViewAdapter_Page2(ctx,
-            MainUserList_Url
-        )
+        linearLayoutManager.isAutoMeasureEnabled = true
+        recyclerView_page2.isNestedScrollingEnabled = false
+        recyclerView_page2.adapter = Main_RecyclerViewAdapter_Page2(ctx, MainUserList_Url)
+        recyclerView_page2.setHasFixedSize(true)
+        recyclerView_page2.layoutManager = linearLayoutManager
+        ViewCompat.setNestedScrollingEnabled(recyclerView_page2, false);
+
     }
 }

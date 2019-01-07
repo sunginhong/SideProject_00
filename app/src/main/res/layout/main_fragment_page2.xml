@@ -1,54 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             android:background="#eeeeee"
+             android:orientation="vertical"
+             android:background="#FFFFFF"
              tools:context="com.example.sunginhong.sideproject_00.Main_Fragment_Page2">
 
     <com.example.sunginhong.sideproject_00.Main_CustomScrollView_Page2
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/main_scrollview_page1"
+            android:id="@+id/main_scrollview_page2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="fill_vertical"
-            android:fillViewport="true"
-            android:scrollbars="none">
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:clickable="true"
+            app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
 
         <RelativeLayout
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:descendantFocusability="blocksDescendants">
 
-
-            <android.support.v4.widget.NestedScrollView
+            <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fillViewport="true">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                <LinearLayout
+                <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerView_page2"
+                        android:clipChildren="false"
+                        android:nestedScrollingEnabled="false"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none">
+                </android.support.v7.widget.RecyclerView>
 
-                    <android.support.v7.widget.RecyclerView
-                            android:id="@+id/recyclerView_page2"
-                            android:clipChildren="false"
-                            android:nestedScrollingEnabled="false"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                    </android.support.v7.widget.RecyclerView>
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"/>
 
-                    <View
-                            android:layout_width="match_parent"
-                            android:layout_height="100dp"/>
-
-                </LinearLayout>
-            </android.support.v4.widget.NestedScrollView>
-
+            </LinearLayout>
         </RelativeLayout>
-
     </com.example.sunginhong.sideproject_00.Main_CustomScrollView_Page2>
+
 </FrameLayout>
