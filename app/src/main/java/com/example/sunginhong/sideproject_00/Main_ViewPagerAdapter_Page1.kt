@@ -25,6 +25,7 @@ class Main_ViewPagerAdapter_Page1(val context: Context, val userList:ArrayList<M
     private val mMyViewPool: Pools.SimplePool<View>
     internal var frag0_VpArray = arrayOfNulls<String>(100)
 
+
     init {
         mInflater = LayoutInflater.from(context)
         mMyViewPool = Pools.SynchronizedPool(MAX_POOL_SIZE)
@@ -55,15 +56,6 @@ class Main_ViewPagerAdapter_Page1(val context: Context, val userList:ArrayList<M
 
         mainVp_textTitle.setText(userList[position].title)
         mainVp_textSubTitle.setText(userList[position].subTitle)
-//        Glide.with(mainVp_imageThumb.getContext()).clear(mainVp_imageThumb)
-//        Glide.with(context).load(userList[position].imgThumb_Url)
-//            .apply(
-//                RequestOptions()
-//                    .placeholder(R.mipmap.ic_launcher)
-//                    .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-//            )
-//
-//            .into(mainVp_imageThumb)
         Picasso.get()
             .load(userList[position].imgThumb_Url)
             .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)

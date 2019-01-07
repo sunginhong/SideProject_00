@@ -12,9 +12,12 @@ import com.example.sunginhong.sideproject_00.Model_User_Json.MainUserList_Min00
 import kotlinx.android.synthetic.main.main_fragment_page1.*
 
 
+
+
 class Main_Fragment_Page1 : Fragment(){
 
     companion object {
+        var PAGE_ITEM_COUNT: Int = 0
     }
 
     fun newInstance(): Main_Fragment_Page1 {
@@ -50,11 +53,15 @@ class Main_Fragment_Page1 : Fragment(){
         recyclerView_page1.layoutManager = linearLayoutManager
         recyclerView_page1.setHasFixedSize(true)
         ViewCompat.setNestedScrollingEnabled(recyclerView_page1, false);
+        PAGE_ITEM_COUNT = MainUserList.size
 
         vp.adapter = Main_ViewPagerAdapter_Page1(ctx, MainUserList_Min00)
         vp.clipToPadding = false
         vp.pageMargin = 0
         vp.offscreenPageLimit = MainUserList_Min00.size
+        val MainVp_PagerInteraction = Main_CustomVp_frag0_Interaction(vp, ctx)
+
+        tab_layout.setupWithViewPager(vp, true)
 
     }
 }
