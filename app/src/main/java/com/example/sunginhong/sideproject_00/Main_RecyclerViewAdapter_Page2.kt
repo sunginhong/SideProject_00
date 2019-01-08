@@ -9,14 +9,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.sunginhong.sideproject_00.Main_Fragment_Page2.Companion.frag2_rv_Array
+import com.example.sunginhong.sideproject_00.Main_Fragment_Page2.Companion.frag2_rv_Array_Ypos
 import com.example.sunginhong.sideproject_00.Model_User.Main_User_Url
 import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_raw_page2_item.view.*
-
-
-
+import java.util.*
+import kotlin.concurrent.timerTask
 
 
 class Main_RecyclerViewAdapter_Page2(val context: Context, val userList:ArrayList<Main_User_Url>): RecyclerView.Adapter<Main_RecyclerViewAdapter_Page2.ViewHolder>() {
@@ -24,6 +25,11 @@ class Main_RecyclerViewAdapter_Page2(val context: Context, val userList:ArrayLis
 //    val arrayMainUserList= arrayListOf<ArrayList<Main_User_min>>()
     var mGroupList = ArrayList<ArrayList<String>>()
     var mChildList = ArrayList<String>()
+
+
+    companion object {
+        var scrollCardHeight = 0
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Main_RecyclerViewAdapter_Page2.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.item_raw_page2_item, parent, false)
@@ -47,6 +53,18 @@ class Main_RecyclerViewAdapter_Page2(val context: Context, val userList:ArrayLis
         linearLayoutManager.isAutoMeasureEnabled = true
         holder.recycle.adapter = Main_RecyclerViewAdapter_Page2_Item(ctx, userList[position].arrayList)
         holder.recycle.setLayoutManager(linearLayoutManager)
+
+        holder.lst_layout.id = position
+        frag2_rv_Array[position] = holder.lst_layout
+
+        val timer = Timer()
+        timer.schedule(timerTask {
+            scrollCardHeight = holder.lst_layout.height/2
+            frag2_rv_Array_Ypos[position] = holder.lst_layout.y
+            if (holder.lst_layout.y > MainActivity.screenHeight){
+                holder.lst_layout.y = frag2_rv_Array_Ypos[position]!! + scrollCardHeight
+            }
+        }, 10)
 
         super.onViewRecycled(holder)
     }

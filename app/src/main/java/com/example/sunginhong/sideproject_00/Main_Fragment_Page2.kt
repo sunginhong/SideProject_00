@@ -1,6 +1,7 @@
 package com.example.sunginhong.sideproject_00
 
 import android.os.Bundle
+import android.support.constraint.ConstraintLayout
 import android.support.v4.app.Fragment
 import android.support.v4.view.ViewCompat
 import android.support.v7.widget.LinearLayoutManager
@@ -13,6 +14,8 @@ import kotlinx.android.synthetic.main.main_fragment_page2.*
 class Main_Fragment_Page2 : Fragment() {
 
     companion object {
+        var frag2_rv_Array = arrayOfNulls<ConstraintLayout>(0)
+        var frag2_rv_Array_Ypos = arrayOfNulls<Float>(0)
     }
 
     fun newInstance(): Main_Fragment_Page2 {
@@ -40,7 +43,8 @@ class Main_Fragment_Page2 : Fragment() {
 
     private fun init (){
         val ctx = context ?: return
-
+        frag2_rv_Array = arrayOfNulls<ConstraintLayout>(MainUserList_Url.size)
+        frag2_rv_Array_Ypos = arrayOfNulls<Float>(MainUserList_Url.size)
         val linearLayoutManager = LinearLayoutManager(ctx, LinearLayoutManager.VERTICAL, false)
         recyclerView_page2.setHasFixedSize(true)
         linearLayoutManager.isAutoMeasureEnabled = true
@@ -48,7 +52,7 @@ class Main_Fragment_Page2 : Fragment() {
         recyclerView_page2.adapter = Main_RecyclerViewAdapter_Page2(ctx, MainUserList_Url)
         recyclerView_page2.setHasFixedSize(true)
         recyclerView_page2.layoutManager = linearLayoutManager
-        ViewCompat.setNestedScrollingEnabled(recyclerView_page2, false);
+        ViewCompat.setNestedScrollingEnabled(recyclerView_page2, false)
 
     }
 }

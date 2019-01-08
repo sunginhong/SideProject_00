@@ -19,7 +19,7 @@ class Main_Fragment_Page1 : Fragment(){
 
     companion object {
         var PAGE_ITEM_COUNT: Int = 0
-        var mainVp_imageThumb_Array = arrayOfNulls<ImageView>(0)
+        var frag1_vpImage_Array = arrayOfNulls<ImageView>(0)
     }
 
     fun newInstance(): Main_Fragment_Page1 {
@@ -57,7 +57,7 @@ class Main_Fragment_Page1 : Fragment(){
         ViewCompat.setNestedScrollingEnabled(recyclerView_page1, false);
         PAGE_ITEM_COUNT = MainUserList.size
 
-        mainVp_imageThumb_Array = arrayOfNulls<ImageView>(MainUserList_Min00.size)
+        frag1_vpImage_Array = arrayOfNulls<ImageView>(MainUserList_Min00.size)
         vp.adapter = Main_ViewPagerAdapter_Page1(ctx, MainUserList_Min00)
         vp.clipToPadding = false
         vp.pageMargin = 0

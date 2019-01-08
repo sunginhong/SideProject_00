@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import com.example.sunginhong.sideproject_00.Main_Fragment_Page1.Companion.mainVp_imageThumb_Array
+import com.example.sunginhong.sideproject_00.Main_Fragment_Page1.Companion.frag1_vpImage_Array
 import com.example.sunginhong.sideproject_00.Model_User.Main_User_min
 import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.NetworkPolicy
@@ -54,7 +54,7 @@ class Main_ViewPagerAdapter_Page1(val context: Context, val userList:ArrayList<M
         val mainVp_textTitle = view.findViewById(R.id.mainVp_textTitle) as TextView
         val mainVp_textSubTitle = view.findViewById(R.id.mainVp_textSubTitle) as TextView
         val mainVp_imageThumb = view.findViewById(R.id.mainVp_imageThumb) as ImageView
-        mainVp_imageThumb_Array[position] = mainVp_imageThumb
+        frag1_vpImage_Array[position] = mainVp_imageThumb
 
         mainVp_textTitle.setText(userList[position].title)
         mainVp_textSubTitle.setText(userList[position].subTitle)

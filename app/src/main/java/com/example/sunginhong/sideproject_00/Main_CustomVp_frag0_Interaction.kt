@@ -5,7 +5,7 @@ import android.content.Context
 import android.support.v4.view.ViewPager
 import android.view.MotionEvent
 import android.view.View
-import com.example.sunginhong.sideproject_00.Main_Fragment_Page1.Companion.mainVp_imageThumb_Array
+import com.example.sunginhong.sideproject_00.Main_Fragment_Page1.Companion.frag1_vpImage_Array
 
 class Main_CustomVp_frag0_Interaction(private val vp: ViewPager, context: Context) : ViewPager(context), ViewPager.OnPageChangeListener, ViewPager.PageTransformer,
     View.OnTouchListener {
@@ -83,12 +83,12 @@ class Main_CustomVp_frag0_Interaction(private val vp: ViewPager, context: Contex
             }
         }
 
-        for (i in 0 until mainVp_imageThumb_Array.size) {
+        for (i in 0 until frag1_vpImage_Array.size) {
             if (i == currentIdx) {
-                mainVp_imageThumb_Array[i]!!.translationX = 0 + positionOffsetPixels/2f
+                frag1_vpImage_Array[i]!!.translationX = 0 + positionOffsetPixels/2f
             }
             if (i == currentIdx+1){
-                mainVp_imageThumb_Array[i]!!.translationX = -vp.getWidth()/2f + positionOffsetPixels/2f
+                frag1_vpImage_Array[i]!!.translationX = -vp.getWidth()/2f + positionOffsetPixels/2f
             }
 
         }

@@ -3,7 +3,7 @@
 <com.example.sunginhong.sideproject_00.Main_BottomFunc
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent" android:layout_height="wrap_content">
+        android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/main_bottom">
     <View
             android:layout_width="match_parent"
             android:layout_height="56dp"
