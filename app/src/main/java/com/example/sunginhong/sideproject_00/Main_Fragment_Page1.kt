@@ -54,7 +54,7 @@ class Main_Fragment_Page1 : Fragment(){
         recyclerView_page1.adapter = Main_RecyclerViewAdapter_Page1(ctx, MainUserList)
         recyclerView_page1.layoutManager = linearLayoutManager
         recyclerView_page1.setHasFixedSize(true)
-        ViewCompat.setNestedScrollingEnabled(recyclerView_page1, false);
+        ViewCompat.setNestedScrollingEnabled(recyclerView_page1, false)
         PAGE_ITEM_COUNT = MainUserList.size
 
         frag1_vpImage_Array = arrayOfNulls<ImageView>(MainUserList_Min00.size)
