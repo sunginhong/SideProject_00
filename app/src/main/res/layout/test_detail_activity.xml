@@ -6,5 +6,5 @@
             android:text="testDetail_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/testDetail_textView"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/white"/>
 </android.support.constraint.ConstraintLayout>
