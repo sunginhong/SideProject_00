@@ -3,7 +3,6 @@ package com.example.sunginhong.sideproject_00.Utils_Folder
 import android.animation.ArgbEvaluator
 import android.animation.ObjectAnimator
 import android.app.Activity
-import android.content.res.Resources
 import android.graphics.Color
 import android.os.Build
 import android.support.v4.content.ContextCompat
@@ -12,13 +11,13 @@ import android.view.WindowManager
 
 
 internal object Utils_Func {
-    fun dpToPx(dp: Int): Int {
-        return (dp * Resources.getSystem().getDisplayMetrics().density) as Int
-    }
-
-    fun pxToDp(px: Int): Int {
-        return (px / Resources.getSystem().getDisplayMetrics().density) as Int
-    }
+//    fun dpToPx(dp: Int): Int {
+//        return (dp * Resources.getSystem().getDisplayMetrics().density) as Int
+//    }
+//
+//    fun pxToDp(px: Int): Int {
+//        return (px / Resources.getSystem().getDisplayMetrics().density) as Int
+//    }
 
     fun updateStatusBarColor(context: Activity, color: String) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
