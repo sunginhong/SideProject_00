@@ -89,6 +89,7 @@ public class ListLineView_LibraryList extends View {
         path.moveTo(-Utils.dpToPx(0), Utils.dpToPx(libLineMargin));
         path.cubicTo(x1, y1, x2, y2, x3, y3);
 //        path.close();
+        
         pathFill = new Path();
 //        paintLine.setColor(Color.WHITE);
         paintFill.setStrokeWidth(2);
