@@ -57,7 +57,9 @@ class Main_CustomScrollView_Page2 : ScrollView {
     override fun onScrollChanged(scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int) {
         super.onScrollChanged(scrollX, scrollY, oldScrollX, oldScrollY)
         scrolledDistance = scrollY;
-        cardAnim()
+        if (MainActivity.currentPageIndex == 1){
+//            cardAnim()
+        }
 
         //SCROLL MOVE
 //        main_scrollview_page2.scrollTo(0, scrollY)

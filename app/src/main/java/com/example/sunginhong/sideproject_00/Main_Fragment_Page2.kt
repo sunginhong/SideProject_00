@@ -10,8 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.sunginhong.sideproject_00.Model_User_Json.MainUserList_Url
 import kotlinx.android.synthetic.main.main_fragment_page2.*
-import java.util.*
-import kotlin.concurrent.timerTask
 
 class Main_Fragment_Page2 : Fragment() {
 
@@ -57,16 +55,21 @@ class Main_Fragment_Page2 : Fragment() {
         recyclerView_page2.layoutManager = linearLayoutManager
         ViewCompat.setNestedScrollingEnabled(recyclerView_page2, false)
 
-        val timer = Timer()
-        timer.schedule(timerTask {
+//        val timer = Timer()
+//        timer.schedule(timerTask {
+//
+//            for (i in 0 until frag2_rv_Array.size) {
+//                scrollCardHeight = frag2_rv_Array[i]!!.height
+//                frag2_rv_Array_Ypos[i] = frag2_rv_Array[i]!!.y
+//                if (frag2_rv_Array[i]!!.y > MainActivity.screenHeight){
+//                    frag2_rv_Array[i]!!.y = frag2_rv_Array[i]!!.y + scrollCardHeight
+//                }
+//            }
+//        }, 1000)
+    }
 
-            for (i in 0 until frag2_rv_Array.size) {
-                scrollCardHeight = frag2_rv_Array[i]!!.height
-                frag2_rv_Array_Ypos[i] = frag2_rv_Array[i]!!.y
-                if (frag2_rv_Array[i]!!.y > MainActivity.screenHeight){
-                    frag2_rv_Array[i]!!.y = frag2_rv_Array[i]!!.y + scrollCardHeight
-                }
-            }
-        }, 1000)
+    override fun onResume() {
+
+        super.onResume()
     }
 }

@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.item_raw_page1.view.*
 class Main_RecyclerViewAdapter_Page1(val context: Context, val userList:ArrayList<Main_User>):RecyclerView.Adapter<Main_RecyclerViewAdapter_Page1.ViewHolder>(),
     View.OnClickListener {
     var c = context
-    internal var frag0_rvArray = arrayOfNulls<String>(100)
+    var frag0_rvArray = arrayOfNulls<String>(100)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Main_RecyclerViewAdapter_Page1.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.item_raw_page1, parent, false)

@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
 
 
     companion object {
+        var currentPageIndex =0
         var screenHeight = 0
         var screenWidth = 0
         var URL_JSON = "http://rstudi0.cafe24.com/json/"
@@ -29,12 +30,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val ctx = context() ?: return
 
         screenHeight = getScreenSize(this).y
         screenWidth = getScreenSize(this).x
 
         val pagerAdapter = Main_PagerAdapter(supportFragmentManager)
         mainvp.adapter = pagerAdapter
+        val MainVp_PagerInteraction = Main_Vp_interaction(mainvp, ctx)
 
 //        arrayBtmButton.add(bottomMenu_btn_write)
         arrayBtmButton.add(bottomMenu_btn_home)
