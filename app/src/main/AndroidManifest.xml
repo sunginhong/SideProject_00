@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".DetailActivity_Test"></activity>
+        <activity android:name="Main_SeacrchView"></activity>
     </application>
 
 </manifest>

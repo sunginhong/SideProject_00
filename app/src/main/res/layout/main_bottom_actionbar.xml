@@ -18,6 +18,8 @@
 
         <ImageButton
                 android:id="@+id/bottomMenu_btn_write"
+                android:transitionName="bottomMenu_btn_center_anim"
+                android:background="#FFFFFF"
                 android:layout_width="56dp"
                 android:layout_height="56dp"
                 android:layout_centerHorizontal="true" android:layout_gravity="center_horizontal"/>

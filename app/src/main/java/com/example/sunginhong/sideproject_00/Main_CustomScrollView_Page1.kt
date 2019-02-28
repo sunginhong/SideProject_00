@@ -53,7 +53,7 @@ class Main_CustomScrollView_Page1 : ScrollView {
     override fun stopNestedScroll() {
         super.stopNestedScroll()
         //SCROLL STOP
-        ListLineView_LibraryList.path_animator(400, true)
+//        ListLineView_LibraryList.path_animator(400, true)
     }
 
     override fun onStopNestedScroll(target: View?) {
@@ -65,13 +65,13 @@ class Main_CustomScrollView_Page1 : ScrollView {
         super.onScrollChanged(scrollX, scrollY, oldScrollX, oldScrollY)
         //SCROLL MOVE
         val lib_distanceY = -(ListLineView_LibraryList.dragStart_point_y - scrollY)
-        ListLineView_LibraryList.functionRedraw(MainActivity.screenWidth/2-(MainActivity.screenWidth-(ListLineView_LibraryList.frag1_lineview.width).toFloat()), lib_distanceY/2)
+//        ListLineView_LibraryList.functionRedraw(MainActivity.screenWidth/2-(MainActivity.screenWidth-(ListLineView_LibraryList.frag1_lineview.width).toFloat()), lib_distanceY/2)
     }
 
     fun checkIfScrollStart(){
         //SCROLL START
         val oldScrollY = main_scrollview_page1.scrollY
-        ListLineView_LibraryList.dragStart_point_y = oldScrollY.toFloat()
+//        ListLineView_LibraryList.dragStart_point_y = oldScrollY.toFloat()
     }
 
     private fun mainSet(){
