@@ -25,7 +25,7 @@ class Main_SeacrchView : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        finish()
+        finishAfterTransition()
     }
 
     override fun onPause() {
